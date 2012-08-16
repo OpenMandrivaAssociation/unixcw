@@ -1,22 +1,15 @@
-%define Werror_cflags %nil
-
-%define libname %mklibname cw
+%define major 4
+%define libname %mklibname cw %{major}
 %define libnamedevel %mklibname cw -d
 
 Name:		unixcw
-Version:	3.0.2
+Version:	3.1.1
 Release:	1	
 Summary:	Shared library for Morse programs
-
 Group:		Communications
 License:	GPLv2+
 URL:		http://sourceforge.net/projects/unixcw
 Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}-%{version}.tar.gz
-
-Patch0:		unixcw-3.0.2-config.patch
-Patch1:		unixcw-3.0.2-destdir.patch
-Patch2:		unixcw-3.0.2-parallel-make.patch
-Patch3:		unixcw-3.0.2-qt4.patch
 
 %description
 The UnixCW utilities add a general purpose CW library to your system, and
@@ -45,24 +38,12 @@ UnixCW utility libraries.
 
 %prep
 %setup -q
-%patch0 -p0
-%patch1 -p0
-%patch2 -p0
-%patch3 -p0
-
-# Fix the encoding on the man pages to be UTF-8
-
 %build
-./configure --prefix=%{_prefix} \
-	    --libdir=%{_libdir} \
-	    --mandir=%{_mandir}
-make 
+%configure2_5x --disable-static
+%make 
 
 %install
-make install DESTDIR=%{buildroot}
-
-# Get rid of static lib.
-rm -rf $RPM_BUILD_ROOT%{_libdir}/*.a
+%makeinstall_std
 
 #Fix permissions for binary files
 chmod 0755 $RPM_BUILD_ROOT%{_bindir}/*
@@ -74,8 +55,7 @@ chmod 0755 $RPM_BUILD_ROOT%{_bindir}/*
 %{_mandir}/man?/*
 
 %files -n %{libname}
-%{_libdir}/libcw.so.3
-%{_libdir}/libcw.so.3.0.1
+%{_libdir}/libcw.so.%{major}*
 
 
 %files -n %{libnamedevel}

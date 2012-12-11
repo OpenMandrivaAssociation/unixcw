@@ -62,3 +62,11 @@ chmod 0755 $RPM_BUILD_ROOT%{_bindir}/*
 %{_libdir}/libcw.so
 %{_includedir}/*.h
 %{_libdir}/pkgconfig/*.pc
+
+
+%changelog
+* Thu Aug 16 2012 Alexander Khrukin <akhrukin@mandriva.org> 3.1.1-1
++ Revision: 814998
+- version update 3.1.1
+- imported package unixcw
+

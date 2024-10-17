@@ -8,7 +8,7 @@ Release:	1
 Summary:	Shared library for Morse programs
 Group:		Communications
 License:	GPLv2+
-URL:		http://sourceforge.net/projects/unixcw
+URL:		https://sourceforge.net/projects/unixcw
 Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}-%{version}.tar.gz
 
 %description

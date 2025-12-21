@@ -11,6 +11,11 @@ License:	GPLv2+
 URL:		https://sourceforge.net/projects/unixcw
 Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}-%{version}.tar.gz
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 The UnixCW utilities add a general purpose CW library to your system, and
 a small set of applications based around this library.  These applications

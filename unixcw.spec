@@ -3,7 +3,7 @@
 %define libnamedevel %mklibname cw -d
 
 Name:		unixcw
-Version:	3.1.1
+Version:	3.6.1
 Release:	1	
 Summary:	Shared library for Morse programs
 Group:		Communications
